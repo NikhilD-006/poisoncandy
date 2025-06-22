@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poison Candy Game</title>
+    <!-- Use url_for to link to the static CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="game-container">
+        <!-- 1. Start Screen -->
+        <div id="start-screen">
+            <h1>Poison Candy Game</h1>
+            <p>Click Start to find a game.</p>
+            <button id="start-btn">Start</button>
+        </div>
+
+        <!-- 2. Waiting Screen -->
+        <div id="waiting-screen" class="hidden">
+            <h1>Waiting for an Opponent...</h1>
+            <div class="spinner"></div>
+        </div>
+
+        <!-- 3. Game Screen -->
+        <div id="game-screen" class="hidden">
+            <div class="header">
+                <h2 id="message-area">Loading...</h2>
+                <div id="timer-area">Time: 30</div>
+            </div>
+            <div id="candy-area"></div>
+        </div>
+        
+        <!-- 4. Game Over Screen -->
+        <div id="game-over-screen" class="hidden">
+            <h1 id="game-over-title">Game Over!</h1>
+            <button id="play-again-btn">Play Again</button>
+        </div>
+    </div>
+
+    <!-- IMPORTANT: Add the Socket.IO client library -->
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <!-- Use url_for to link to the static JS file -->
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>
